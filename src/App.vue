@@ -6,12 +6,16 @@
   <router-view/>
 </template>
 
-<script>
-
-  export default {
-
-  }
+<script setup>
+import axios from 'axios';
+import { onMounted } from 'vue';
   
+  onMounted(
+    axios.get('https://fakestoreapi.com/products')
+    .then(r => {
+      console.log(r.data)
+    })
+  )
 </script>
 
 
