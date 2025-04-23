@@ -7,15 +7,16 @@
 </template>
 
 <script setup>
-import axios from 'axios';
-import { onMounted } from 'vue';
+import { computed, onMounted } from 'vue';
+import { useStore, mapState } from 'vuex';
   
-  onMounted(
-    axios.get('https://fakestoreapi.com/products')
-    .then(r => {
-      console.log(r.data)
-    })
+const store = useStore()
+  onMounted(() =>{
+      store.dispatch('loadProducts')
+  }
   )
+
+  const products = computed(() => store.state.products)
 </script>
 
 
