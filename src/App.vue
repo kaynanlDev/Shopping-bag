@@ -7,16 +7,16 @@
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue';
-import { useStore, mapState } from 'vuex';
+import { onMounted } from 'vue';
+import { useStore } from 'vuex';
   
 const store = useStore()
   onMounted(() =>{
       store.dispatch('loadProducts')
   }
   )
+  
 
-  const products = computed(() => store.state.products)
 </script>
 
 
